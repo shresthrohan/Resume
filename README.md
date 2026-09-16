@@ -14,22 +14,6 @@ This repository contains my current resume and cover letter, kept under version 
 └── README.md
 ```
 
-## Usage
-
-To build the PDFs from source (if using LaTeX):
-
-```bash
-cd src
-pdflatex resume.tex
-pdflatex cover-letter.tex
-```
-
-Adjust this section if you're using a different toolchain (e.g. Markdown + Pandoc, Word, or a design tool export).
-
-## Versioning
-
-- `main` holds the most current, general-purpose versions.
-- Tailored versions for specific applications can live on branches or in a `versions/` folder, named by company or role (e.g. `versions/2026-01-acme-corp.pdf`).
 
 ## License
 

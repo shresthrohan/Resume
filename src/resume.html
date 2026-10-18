@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shresth Rohan Resume</title>
+<meta name="author" content="Shresth Rohan">
+<meta name="keywords" content="Software Engineer, Machine Learning, Computer Vision, Data Science, Full-Stack, Python, React, PyTorch">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<style>
+  @page { size: letter; margin: 0.5in 0.55in; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #fff; color: #000;
+    font-family: "Computer Modern Serif", "Latin Modern Roman", "CMU Serif", Georgia, serif;
+    font-size: 10.6pt; line-height: 1.22;
+  }
+  .page { max-width: 7.4in; margin: 0 auto; }
+  @media screen { .page { padding: 0.5in 0.3in; } }
+  a { color: inherit; text-decoration: underline; }
+  header { text-align: center; margin-bottom: 4pt; }
+  h1 { font-size: 25pt; font-weight: bold; margin: 0 0 3pt; letter-spacing: 0.3pt; }
+  .contact { font-size: 9.8pt; }
+  h2 {
+    font-variant: small-caps; font-weight: normal; font-size: 12.5pt;
+    border-bottom: 0.6pt solid #000; margin: 9pt 0 4pt; padding-bottom: 1pt;
+  }
+  .entry { margin: 0 0 4pt 0.12in; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .row b { font-weight: bold; }
+  .row > span:last-child { white-space: nowrap; flex-shrink: 0; }
+  .sub { font-style: italic; font-size: 10pt; }
+  ul { margin: 2pt 0 0; padding-left: 0.32in; }
+  li { margin: 0 0 1.2pt; font-size: 10pt; }
+  li::marker { font-size: 8pt; }
+  .summary, .skills { margin: 0 0 0 0.12in; font-size: 10pt; }
+  .skills div { margin-bottom: 1pt; }
+  .tech { font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>Shresth Rohan</h1>
+  <div class="contact">
+    Vellore, Tamil Nadu, India |
+    +91 7479853320 |
+    <a href="mailto:shresthrohan10183@gmail.com">shresthrohan10183@gmail.com</a><br>
+    <a href="https://www.linkedin.com/in/shresth-rohan-6334a5317/">linkedin.com/in/shresth-rohan-6334a5317</a> |
+    <a href="https://github.com/shresthrohan">github.com/shresthrohan</a>
+  </div>
+</header>
+
+<h2>Summary</h2>
+<div class="summary">
+  CS (Data Science) undergraduate building machine learning, full-stack and embedded systems: a from-scratch DSL compiler,
+  a real-time computer vision attention monitor and a patent-filed IoT system.
+</div>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="row"><b>Vellore Institute of Technology</b><span>Vellore, Tamil Nadu</span></div>
+  <div class="row sub"><span>B.Tech. in Computer Science, Specialization in Data Science; CGPA: 8.76/10</span><span>Jul 2024 – May 2028</span></div>
+</div>
+<div class="entry">
+  <div class="row"><b>St. Michael’s High School</b><span>Patna, Bihar</span></div>
+  <div class="row sub"><span>Class XII (CBSE) – 90.2%</span><span>May 2024</span></div>
+</div>
+<div class="entry">
+  <div class="row"><b>Don Bosco Academy</b><span>Patna, Bihar</span></div>
+  <div class="row sub"><span>Class X (ICSE) – 96.8%</span><span>May 2022</span></div>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+  <div class="row"><span><b>CleanScript – Data Cleaning DSL Compiler</b> | <span class="tech">Python, FastAPI, Pandas, React</span></span><span>Oct 2026 – Present</span></div>
+  <ul>
+    <li>Designed a 10-command domain-specific language for cleaning CSV datasets and built its compiler from scratch</li>
+    <li>Hand-wrote the <b>lexer</b>, <b>recursive-descent parser</b>, schema-aware <b>semantic analyzer</b>, <b>IR</b> and <b>code generator</b></li>
+    <li>Executed programs on a sandboxed IR interpreter (no eval/exec), checked by <b>194 pytest unit tests</b></li>
+    <li>Benchmarked <b>1M rows cleaned in 2.7 s</b>, output identical to hand-written Pandas, plain Python and SQLite</li>
+    <li>Built a full-stack React + FastAPI app that visualizes each compiler stage and auto-suggests dataset fixes</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>FocusGuard</b> | <span class="tech">Python, PyTorch, ONNX, Flask, React, Node.js, MongoDB</span></span><span>Feb 2026 – Present</span></div>
+  <ul>
+    <li>Built a real-time <b>computer vision</b> focus monitor using <b>MobileNetV2 transfer learning</b> on webcam input</li>
+    <li>Served a custom <b>ONNX</b> deep learning model via a <b>Flask REST API</b> with MediaPipe face detection</li>
+    <li>Developed a React analytics and productivity dashboard backed by a <b>Node.js/Express API</b> and <b>MongoDB</b></li>
+    <li>Implemented a <b>Chrome extension</b> using MutationObserver to hide distracting feeds on YouTube and Instagram</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>Smart Adaptive Street Lighting (Patent Filed)</b> | <span class="tech">ESP32, C++, IoT Sensors</span></span><span>Apr 2025 – Present</span></div>
+  <ul>
+    <li>Built an <b>ESP32 embedded system</b> fusing LDR, rain, sound and ultrasonic sensors for adaptive lighting</li>
+    <li>Implemented <b>dynamic brightness control</b> with siren detection to save energy and prioritize emergency vehicles</li>
+    <li>Designed a <b>servo-assisted ultrasonic scanner</b> for vehicle detection and real-time overspeed alerts</li>
+    <li><b>Filed an Indian patent application</b> for the integrated multi-sensor smart-city lighting design</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <div><b>Languages</b>: Python, Java, C/C++, SQL, JavaScript, HTML/CSS</div>
+  <div><b>Frameworks</b>: React, Node.js, Express, FastAPI, Flask, Spring Boot, Vite</div>
+  <div><b>AI/ML &amp; Data</b>: Machine Learning, Deep Learning, Computer Vision, PyTorch, ONNX, MediaPipe, Pandas, NumPy</div>
+  <div><b>Databases</b>: MongoDB, PostgreSQL, SQLite</div>
+  <div><b>Developer Tools</b>: Git, Docker, Pytest, Vitest, VS Code, Arduino IDE</div>
+  <div><b>Concepts</b>: Data Structures &amp; Algorithms, Object-Oriented Programming, Compiler Design, REST APIs, Unit Testing</div>
+</div>
+
+<h2>Achievements &amp; Leadership</h2>
+<div class="entry">
+  <ul>
+    <li><b>State Rank 3</b>, <b>International Rank 239</b> – SilverZone International Informatics Olympiad</li>
+    <li><b>Zonal Rank 1</b>, <b>International Rank 85</b> – SOF International English Olympiad</li>
+    <li><b>Volunteer, Karo Sambhav Movement</b> – supported e-waste collection and recycling awareness drives</li>
+    <li><b>Volunteer Instructor, VIT Outreach Program</b> – taught computers and coding to middle-school students</li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

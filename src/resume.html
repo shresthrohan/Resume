@@ -16,7 +16,7 @@
     font-size: 10.6pt; line-height: 1.22;
   }
   .page { max-width: 7.4in; margin: 0 auto; }
-  @media screen { .page { padding: 0.5in 0.3in; } }
+  @media screen { .page { max-width: 8in; padding: 0.5in 0.3in; } }
   a { color: inherit; text-decoration: underline; }
   header { text-align: center; margin-bottom: 4pt; }
   h1 { font-size: 25pt; font-weight: bold; margin: 0 0 3pt; letter-spacing: 0.3pt; }
@@ -24,8 +24,9 @@
   h2 {
     font-variant: small-caps; font-weight: normal; font-size: 12.5pt;
     border-bottom: 0.6pt solid #000; margin: 9pt 0 4pt; padding-bottom: 1pt;
+    break-after: avoid;
   }
-  .entry { margin: 0 0 4pt 0.12in; }
+  .entry { margin: 0 0 4pt 0.12in; break-inside: avoid; }
   .row { display: flex; justify-content: space-between; gap: 12pt; }
   .row b { font-weight: bold; }
   .row > span:last-child { white-space: nowrap; flex-shrink: 0; }
@@ -36,9 +37,12 @@
   .summary, .skills { margin: 0 0 0 0.12in; font-size: 10pt; }
   .skills div { margin-bottom: 1pt; }
   .tech { font-style: italic; }
+  .gh { margin-left: 4pt; text-decoration: none; }
+  .gh svg { width: 9pt; height: 9pt; vertical-align: -1pt; fill: currentColor; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol></svg>
 <div class="page">
 <header>
   <h1>Shresth Rohan</h1>
@@ -71,17 +75,79 @@
 
 <h2>Projects</h2>
 <div class="entry">
-  <div class="row"><span><b>CleanScript – Data Cleaning DSL Compiler</b> | <span class="tech">Python, FastAPI, Pandas, React</span></span><span>Oct 2026 – Present</span></div>
+  <div class="row"><span><b>CleanScript – Data Cleaning DSL Compiler</b> | <span class="tech">Python, FastAPI, Pandas, React</span><a class="gh" href="https://github.com/shresthrohan/CleanScript" aria-label="CleanScript on GitHub"><svg><use href="#gh"/></svg></a></span><span>Oct 2026</span></div>
   <ul>
     <li>Designed a 10-command domain-specific language for cleaning CSV datasets and built its compiler from scratch</li>
     <li>Hand-wrote the <b>lexer</b>, <b>recursive-descent parser</b>, schema-aware <b>semantic analyzer</b>, <b>IR</b> and <b>code generator</b></li>
     <li>Executed programs on a sandboxed IR interpreter (no eval/exec), checked by <b>194 pytest unit tests</b></li>
     <li>Benchmarked <b>1M rows cleaned in 2.7 s</b>, output identical to hand-written Pandas, plain Python and SQLite</li>
-    <li>Built a full-stack React + FastAPI app that visualizes each compiler stage and auto-suggests dataset fixes</li>
   </ul>
 </div>
 <div class="entry">
-  <div class="row"><span><b>FocusGuard</b> | <span class="tech">Python, PyTorch, ONNX, Flask, React, Node.js, MongoDB</span></span><span>Feb 2026 – Present</span></div>
+  <div class="row"><span><b>CleanPilot – Data-Cleaning LLM</b> | <span class="tech">Python, PyTorch, QLoRA, llama.cpp, FastAPI</span></span><span>Nov 2026</span></div>
+  <ul>
+    <li>Built a tool that turns plain-English requests (“drop duplicates, keep adults”) into CleanScript programs</li>
+    <li>Generated <b>20,600 training examples</b> by running random programs through the real compiler as ground truth</li>
+    <li>Fine-tuned <b>Qwen2.5-Coder-0.5B</b> (QLoRA) with grammar-constrained decoding over real column names</li>
+    <li>Reached <b>99.3% execution accuracy</b> (base model: 7.3%), 89% on real CSVs; 4-bit GGUF runs on CPU in 3 s</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>FinLedger-AI – Banking Ledger (Team)</b> | <span class="tech">FastAPI, PostgreSQL, React, scikit-learn</span><a class="gh" href="https://github.com/Saksham0025/FinLedger-AI" aria-label="FinLedger-AI on GitHub"><svg><use href="#gh"/></svg></a></span><span>Oct 2026</span></div>
+  <ul>
+    <li>Built a double-entry banking system with NEFT/RTGS/IMPS transfers, investments and fraud detection</li>
+    <li>Enforced money rules inside <b>PostgreSQL</b>: balanced-posting triggers, append-only audit logs, exact decimals</li>
+    <li>Made transfers <b>idempotent</b> and deadlock-free (ordered row locks), verified by <b>187 tests on real PostgreSQL</b></li>
+    <li>Flagged fraud with a <b>Random Forest</b> plus graph analysis of money flows (fan-in, circular, multi-hop layering)</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>TraceNest – API Testing Studio</b> | <span class="tech">TypeScript, Express, MongoDB, React</span><a class="gh" href="https://github.com/shresthrohan/TracNest" aria-label="TraceNest on GitHub"><svg><use href="#gh"/></svg></a></span><span>Nov 2026</span></div>
+  <ul>
+    <li>Built a Postman-style studio to send API requests, run assertion suites and diff responses between runs</li>
+    <li>Added scheduled uptime monitors with statistical <b>latency anomaly detection</b> and an optional AI assistant</li>
+    <li>Blocked <b>SSRF</b> by validating IPs inside the DNS lookup (no rebinding window) and redacted secrets from history</li>
+    <li>Secured with httpOnly-cookie JWT auth and per-user data scoping; <b>132 server tests</b> on in-memory MongoDB</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>DataDukaan – Text-to-SQL Agent</b> | <span class="tech">FastAPI, DuckDB, React, TypeScript</span><a class="gh" href="https://github.com/Naman080706/DataDukaan" aria-label="DataDukaan on GitHub"><svg><use href="#gh"/></svg></a></span><span>Oct 2026</span></div>
+  <ul>
+    <li>Built (NEXAI hackathon team) an AI agent that answers plain-English questions over <b>1M+ rows</b> of sales data</li>
+    <li>Validated LLM-written SQL with <b>sqlglot</b> on a read-only DuckDB connection with timeouts and row caps</li>
+    <li>Fact-checked every claim in an answer against the returned rows; the LLM repairs failed queries from DB errors</li>
+    <li>Added back-tested sales forecasts, ranked action lists, and private in-browser uploads via <b>DuckDB-WASM</b></li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>NeoAtlas – AI Research &amp; Notes Assistant</b> | <span class="tech">Python, FastAPI, SQLite, React, TypeScript</span></span><span>Oct 2026</span></div>
+  <ul>
+    <li>Built an app that rates a project idea from web, GitHub and Semantic Scholar searches in a cited report</li>
+    <li>Turned transcripts and uploaded videos into structured, searchable notes that publish to <b>Notion</b></li>
+    <li>Checked LLM output in code: citations verified, scores computed deterministically, untrusted text isolated</li>
+    <li>Wrote <b>1,039 tests</b> (pytest + Vitest) with a mock twin for every external provider</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>Autocompounder – ML Portfolio Manager</b> | <span class="tech">Python, scikit-learn, Pandas, NumPy</span></span><span>Nov 2026</span></div>
+  <ul>
+    <li>Built an automated investing bot for NSE stocks and ETFs using a core (index + gold) and momentum strategy</li>
+    <li>Trained a <b>gradient-boosted</b> stock-ranking model and tested it in a <b>walk-forward backtest</b></li>
+    <li>A <b>double-entry ledger</b> limits the bot to its allotted capital and to selling only its own shares</li>
+    <li>Modeled Indian trading costs in paise; paper broker plus Zerodha Kite and DhanHQ adapters; 44 unit tests</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>FrontForge – Visual Website Builder</b> | <span class="tech">TypeScript, React, Express, SQLite, Tailwind</span></span><span>Nov 2026</span></div>
+  <ul>
+    <li>Built a drag-and-drop website builder that exports clean code as <b>React + Vite</b>, <b>Next.js</b> or static HTML</li>
+    <li>Structured as a TypeScript monorepo with a shared engine for 15 components, 12 design styles and 10 templates</li>
+    <li>Added live <b>accessibility (WCAG) and SEO audits</b> and an XSS/CSS-injection sanitizer for user content</li>
+    <li>Implemented multi-tenant auth (scrypt, JWT revocation), team invites, sanitized uploads and paid plan tiers</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>FocusGuard</b> | <span class="tech">Python, PyTorch, ONNX, Flask, React, Node.js, MongoDB</span><a class="gh" href="https://github.com/shresthrohan/Focus-Guard" aria-label="FocusGuard on GitHub"><svg><use href="#gh"/></svg></a></span><span>Feb 2026</span></div>
   <ul>
     <li>Built a real-time <b>computer vision</b> focus monitor using <b>MobileNetV2 transfer learning</b> on webcam input</li>
     <li>Served a custom <b>ONNX</b> deep learning model via a <b>Flask REST API</b> with MediaPipe face detection</li>
@@ -90,7 +156,15 @@
   </ul>
 </div>
 <div class="entry">
-  <div class="row"><span><b>Smart Adaptive Street Lighting (Patent Filed)</b> | <span class="tech">ESP32, C++, IoT Sensors</span></span><span>Apr 2025 – Present</span></div>
+  <div class="row"><span><b>VitalSense – AI Health Monitoring</b> | <span class="tech">Python, scikit-learn, Pandas, Matplotlib</span><a class="gh" href="https://github.com/shresthrohan/VitalSense" aria-label="VitalSense on GitHub"><svg><use href="#gh"/></svg></a></span><span>Oct 2026</span></div>
+  <ul>
+    <li>Built a model that flags vital signs (heart rate, temperature, motion) as normal, warning, critical or faulty</li>
+    <li>Compared five ML models against a threshold rule with <b>patient-level GroupKFold</b> to prevent data leakage</li>
+    <li>Measured false alarms per hour and detection delay; persistence-based alerts reduce alarm fatigue</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>Smart Adaptive Street Lighting (Patent Filed)</b> | <span class="tech">ESP32, C++, IoT Sensors</span></span><span>Apr 2025</span></div>
   <ul>
     <li>Built an <b>ESP32 embedded system</b> fusing LDR, rain, sound and ultrasonic sensors for adaptive lighting</li>
     <li>Implemented <b>dynamic brightness control</b> with siren detection to save energy and prioritize emergency vehicles</li>
@@ -98,18 +172,42 @@
     <li><b>Filed an Indian patent application</b> for the integrated multi-sensor smart-city lighting design</li>
   </ul>
 </div>
+<div class="entry">
+  <div class="row"><span><b>Shresth Billing – Desktop Invoicing App</b> | <span class="tech">Python, PySide6, SQLite, openpyxl</span></span><span>Oct 2026</span></div>
+  <ul>
+    <li>Built an offline billing app for a travel business, replacing hand-made Excel bills</li>
+    <li>Calculates rent, fuel surcharge, tolls and night halts with exact decimal money and amounts in words</li>
+    <li>Generates print-ready Excel and PDF invoices from the original template, plus monthly customer statements</li>
+    <li>Supports bill correction and cancellation with stable numbering, automatic backups and pytest-tested logic</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>GameBox – Browser Mini-Games</b> | <span class="tech">React, Vite, React Router, JavaScript</span><a class="gh" href="https://github.com/shresthrohan/Game-box" aria-label="GameBox on GitHub"><svg><use href="#gh"/></svg></a></span><span>Sep 2026</span></div>
+  <ul>
+    <li>Built a browser arcade of <b>10 classic games</b> (Wordle, 2048, Snake, Connect Four and more) with no backend</li>
+    <li>Data-driven game catalogue with search, category filters and scores saved in localStorage</li>
+    <li>One component per game with shared UI components and an animated Three.js background</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>VIT Marketplace – Campus Buy &amp; Sell App</b> | <span class="tech">React, Vite, JavaScript</span></span><span>Mar 2026</span></div>
+  <ul>
+    <li>Built a campus marketplace where VIT students list items to sell or post requests for things they need</li>
+    <li>Restricted sign-in to college email addresses; listings support image upload and category filters</li>
+    <li>Added listing detail, buyer–seller chat and account pages in a single-page React app</li>
+  </ul>
+</div>
 
 <h2>Technical Skills</h2>
 <div class="skills">
-  <div><b>Languages</b>: Python, Java, C/C++, SQL, JavaScript, HTML/CSS</div>
-  <div><b>Frameworks</b>: React, Node.js, Express, FastAPI, Flask, Spring Boot, Vite</div>
-  <div><b>AI/ML &amp; Data</b>: Machine Learning, Deep Learning, Computer Vision, PyTorch, ONNX, MediaPipe, Pandas, NumPy</div>
-  <div><b>Databases</b>: MongoDB, PostgreSQL, SQLite</div>
-  <div><b>Developer Tools</b>: Git, Docker, Pytest, Vitest, VS Code, Arduino IDE</div>
-  <div><b>Concepts</b>: Data Structures &amp; Algorithms, Object-Oriented Programming, Compiler Design, REST APIs, Unit Testing</div>
+  <div><b>Languages</b>: Python, Java, JavaScript, C, C++</div>
+  <div><b>Frameworks &amp; Libraries</b>: React, Node.js, Express, FastAPI, Flask, Spring Boot, Tailwind CSS</div>
+  <div><b>AI/ML &amp; Data</b>: PyTorch, scikit-learn, Pandas, NumPy, ONNX, MediaPipe, LLM Fine-Tuning</div>
+  <div><b>Databases &amp; Tools</b>: PostgreSQL, MongoDB, SQLite, Git, Docker, AWS, Vite, Pytest</div>
+  <div><b>Coursework</b>: Object-Oriented Programming, DBMS, Data Structures &amp; Algorithms, Operating Systems</div>
 </div>
 
-<h2>Achievements &amp; Positions of Responsibility</h2>
+<h2>Achievements &amp; Co-curriculars</h2>
 <div class="entry">
   <ul>
     <li><b>Competitive Coding</b> Mentor at IEEE TEMS</li>
